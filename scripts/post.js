@@ -8,9 +8,6 @@ function loadPost() {
     // pega id do post
     const post = localStorageList.find((item) => item.id == id)
 
-    // const divPost = document.getElementById('post-container')
-
-
     // verifica se o post nao existe, exibe erro, se existe, cria a tela do post
     if (!post) {
         const img = document.createElement('img')

@@ -89,7 +89,7 @@ a {
 }
 
 
-
+/* Tablet */
 @media screen and (max-width: 1023px) {
   .post-container {
     max-width: 90%;
@@ -114,6 +114,7 @@ a {
   }
 }
 
+/* Phone */
 @media screen and (max-width: 767px) {
   .post-container {
     max-width: 90%;
