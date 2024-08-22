@@ -48,6 +48,9 @@ function loadPosts() {
             row.appendChild(actionCell);
 
             postsTableBody.appendChild(row);
+
+            //  EVENTO DOUBLECLICK ex4
+            row.ondblclick = () => window.location.href = `post.html?id=${post.id}`
         });
     }
 }
