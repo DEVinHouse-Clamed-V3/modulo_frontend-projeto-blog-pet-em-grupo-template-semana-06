@@ -1,39 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Posts</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <!--  <link rel="stylesheet" href="css/main.css"> -->
+    <link rel="stylesheet" href="styles/list_post.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-   
-    <nav class="nav">
-        <ul>
-            <li><a href="cadastro_post.html">Criar Post</a>
-            <li><a href="listagem_post_admin.html">Listagem</a>
-        </ul>
-    </nav>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/imdbLogo.png" alt="Imdb Logo">
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="filme-posts">
+                <a href="" class="filme-card">
+                    <div class="image">
+                        <img src="images/Deadpool3.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="top-info">
+                            <span>⭐ 8,0 </span>
+                        </div>
+                        <h3>Deadpool & Wolverine</h3>
+                        <span>August 08, 2024 - 9 minutes read</span>
+                    </div>
+                </a>
+                <a href="" class="filme-card">
+                    <div class="image">
+                        <img src="images/alien.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="top-info">
+                            <span>⭐ 8,0 </span>
+                        </div>
+                        <h3>Alien: Romuklus</h3>
+                        <span>August 08, 2024 - 9 minutes read</span>
+                    </div>
+                </a>
+                <a href="" class="filme-card">
+                    <div class="image">
+                        <img src="images/assimqueacaba.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="top-info">
+                            <span>⭐ 8,0 </span>
+                        </div>
+                        <h3>É Assim que Acaba</h3>
+                        <span>August 08, 2024 - 9 minutes read</span>
+                    </div>
+                </a>
+                <a href="" class="filme-card">
+                    <div class="image">
+                        <img src="images/twisters.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="top-info">
+                            <span>⭐ 8,0 </span>
+                        </div>
+                        <h3>Twisters</h3>
+                        <span>August 08, 2024 - 9 minutes read</span>
+                    </div>
+                </a>
+            </div>
+            <button class="btn-load-more">CARREGAR POSTS</button>
+        </div>
+    </section>
+    
+    <!-- Modal -->
+    <!-- <div id="modal" class="modal">
+        <div class="container">
+            <div class="modal-content">
+                <div class="info">
+                    <h3 id="modal-title">Título do Filme</h3>
+                    <span class="close-btn">&times;</span>
+                </div>
+                <div class="area-content">
+                    <div class="area-left">
+                        <div class="image">
+                            <img id="modal-img" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="area-right">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, cum dolorem nam tempora impedit reiciendis incidunt quia laudantium magnam quidem fugiat distinctio cupiditate possimus expedita inventore! Ut rerum ab ea?</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
 
-
-    <div class="container">
-        <h1>Meus Posts</h1>
-        <table id="postsTable">
-            <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>Descrição</th>
-                    <th>Categoria</th>
-                    <th>Data de Criação</th>
-                    <th>Foto</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Posts serão carregados aqui -->
-            </tbody>
-        </table>
-    </div>
     <script src="scripts/listagem_post_admin.js"></script>
 </body>
+
 </html>

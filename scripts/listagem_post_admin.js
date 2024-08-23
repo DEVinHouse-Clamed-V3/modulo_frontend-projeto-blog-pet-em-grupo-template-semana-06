@@ -1,62 +1,49 @@
+function tempoLeitura(post) {
+  const descricaoPost = post.descricao;
+  const tempoLeitura = descricaoPost.length / 200;
+
+  if (tempoLeitura <= 1) {
+    return '1 min';
+  } else {
+    return `${Math.ceil(tempoLeitura)} min`; // Arredonda para cima o valor do tempo de leitura.
+  }
+}
+
 function loadPosts() {
-    const postsTableBody = document.querySelector('#postsTable tbody');
-    let posts = JSON.parse(localStorage.getItem('posts')) || [];
+  const listaPosts = document.querySelector('.filme-posts');
+  const posts = JSON.parse(localStorage.getItem('posts')) || [];
 
-    postsTableBody.innerHTML = ''; // Limpa a tabela
+  posts.forEach((post) => {
+    const postElement = `
+      <a id=${post.id} href="" class="filme-card">
+        <div class="image">
+          <img src="${post.foto}" alt="${post.titulo}">
+        </div>
+        <div class="info">
+          <div class="top-info">
+            <span>⭐ 10</span>
+          </div>
+          <h3>${post.titulo}</h3>
+          <span>${post.dataCriacao} - ${tempoLeitura(post)} read</span>
+        </div>
+      </a>
+    `;
 
-    if (posts.length === 0) {
-        const emptyRow = document.createElement('tr');
-        const emptyCell = document.createElement('td');
-        emptyCell.setAttribute('colspan', '6');
-        emptyCell.textContent = 'Nenhum post encontrado.';
-        emptyRow.appendChild(emptyCell);
-        postsTableBody.appendChild(emptyRow);
-    } else {
-        posts.forEach((post, index) => {
-            const row = document.createElement('tr');
-
-            const tituloCell = document.createElement('td');
-            tituloCell.textContent = post.titulo;
-            row.appendChild(tituloCell);
-
-            const descricaoCell = document.createElement('td');
-            descricaoCell.textContent = post.descricao;
-            row.appendChild(descricaoCell);
-
-            const categoriaCell = document.createElement('td');
-            categoriaCell.textContent = post.categoria;
-            row.appendChild(categoriaCell);
-
-            const dataCriacaoCell = document.createElement('td');
-            dataCriacaoCell.textContent = new Date(post.dataCriacao).toLocaleDateString();
-            row.appendChild(dataCriacaoCell);
-
-            const fotoCell = document.createElement('td');
-            const fotoImg = document.createElement('img');
-            fotoImg.setAttribute('src', post.foto);
-            fotoImg.setAttribute('alt', post.titulo);
-            fotoImg.style.maxWidth = '100px';
-            fotoCell.appendChild(fotoImg);
-            row.appendChild(fotoCell);
-
-            const actionCell = document.createElement('td');
-            const deleteButton = document.createElement('button');
-            deleteButton.classList.add('delete-btn');
-            deleteButton.textContent = 'Deletar';
-            deleteButton.onclick = () => deletePost(index);
-            actionCell.appendChild(deleteButton);
-            row.appendChild(actionCell);
-
-            postsTableBody.appendChild(row);
-        });
-    }
+    listaPosts.innerHTML += postElement;
+  });
 }
 
-function deletePost(index) {
-    let posts = JSON.parse(localStorage.getItem('posts')) || [];
-    posts = posts.filter((post, i) => i !== index);
-    localStorage.setItem('posts', JSON.stringify(posts));
-    loadPosts();
+function loadMorePosts() {
+  const btnLoadMore = document.querySelector('.btn-load-more');
+  if (btnLoadMore) {
+    btnLoadMore.addEventListener('click', () => {
+      console.log('Botão carregar mais posts foi clicado');
+      loadPosts(); // Carrega mais posts ao clicar
+    });
+  }
 }
 
-document.addEventListener('DOMContentLoaded', loadPosts);
+document.addEventListener('DOMContentLoaded', () => {
+  loadPosts();
+  loadMorePosts();
+});
